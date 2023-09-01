@@ -13,8 +13,8 @@ scene.add(mesh);
 
 // PROVIDED Camera
 const ar = {
-    width: 600,
-    height: 600,
+    width: 400,
+    height: 400,
 };
 
 /**
@@ -24,9 +24,7 @@ const ar = {
  * @param Renderer - Where to visualize the Scene from a Camera POV
  */
 const camera = new THREE.PerspectiveCamera(75, ar.width / ar.height);
-camera.position.z = 5.5;
-camera.position.x = 1;
-camera.position.y = 1;
+camera.position.z = 2;
 
 scene.add(camera);
 
@@ -36,3 +34,12 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(ar.width, ar.height);
 renderer.render(scene, camera);
+
+function animate() {
+    requestAnimationFrame(animate);
+    mesh.rotation.x += 0.01;
+    mesh.rotation.y += 0.01;
+    renderer.render(scene, camera);
+}
+
+animate();
