@@ -12,10 +12,9 @@ const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
 // PROVIDED Camera
-
 const ar = {
-  width: 800,
-  height: 600,
+    width: 600,
+    height: 600,
 };
 
 /**
@@ -25,7 +24,7 @@ const ar = {
  * @param Renderer - Where to visualize the Scene from a Camera POV
  */
 const camera = new THREE.PerspectiveCamera(75, ar.width / ar.height);
-camera.position.z = 4;
+camera.position.z = 5.5;
 camera.position.x = 1;
 camera.position.y = 1;
 
@@ -33,7 +32,7 @@ scene.add(camera);
 
 const canvas = document.getElementById("webgl");
 const renderer = new THREE.WebGLRenderer({
-  canvas,
+    canvas,
 });
 renderer.setSize(ar.width, ar.height);
 renderer.render(scene, camera);
